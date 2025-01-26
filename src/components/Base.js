@@ -17,9 +17,7 @@ const containerVarients = {
   }
 }
 
-
 const nextVarient = {
-
   hidden : {
      x: "-100vw"
   },
@@ -30,8 +28,23 @@ const nextVarient = {
       stiffness: 120
     }
   }
-  
 }
+
+
+
+
+const buttonVariant = {
+  hover: {
+    scale: 1.1,
+    boxShadow: "0px 0px 8px rgb(255 255 255)",
+    textShadow: "0px 0px 8px rgb(255 255 255)",
+    transition: { // Moved transition inside the hover variant
+      duration: 0.2,
+      yoyo: 10 // Enables animation to repeat back and forth
+    }
+  }
+};
+
 
 const Base = ({ addBase, pizza }) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
@@ -41,7 +54,6 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVarients}
       initial="hidden"        // these two props will be passed to childen elements
       animate="visible"
-
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
@@ -77,13 +89,8 @@ const Base = ({ addBase, pizza }) => {
         >
           <Link to="/toppings">
             <motion.button
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 0px 8px rgb(255 255 255)",
-                textShadow: "0px 0px 8px rgb(255 255 255)",
-
-              }}
-
+              variants={buttonVariant}
+              whileHover='hover'
             >
               Next</motion.button>
           </Link>
