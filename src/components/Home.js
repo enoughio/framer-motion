@@ -14,16 +14,30 @@ const buttonVariant = {
   }
 };
 
+const containerVarients = {
+  hidden :  {
+    opacity: 0.7
+  },
+  visible : {
+    opacity: 1,
+    transition : {
+      delay: 1.5,
+      duration: 1,
+    }
+  },
+  exit : {
+    x: "-100vw"
+  }
+}
+
 const Home = () => {
   return (
     <div className="home container">
       <motion.h2
-        initial={{
-          opacity: 0.7
-        }}
-        animate={{
-          opacity: 1,
-        }}
+        variants={containerVarients}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         Welcome to Pizza Joint
       </motion.h2>

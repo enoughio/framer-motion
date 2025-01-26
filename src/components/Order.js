@@ -29,30 +29,15 @@ const chiledVarient = {
 }
 
 const Order = ({ pizza }) => {
-  const [show, setShow] = useState(true)
-  
-  setTimeout(()=>{
-    setShow(false)
-  }, 4000);
 
   return (
     <motion.div className="container order"
       variants={containerVarients}
       initial="hidden"
       animate="visible"
-
     >
-      <AnimatePresence>
-        {
-          show && (  <motion.h2
-            exit={{
-              y: -1000,
-              scale: 2,
-              color: 'red',
-            }}
-          >Thank you for your order :)</motion.h2>)
-        }
-      </AnimatePresence>
+      <motion.h2>Thank you for your order :)</motion.h2>
+
       <motion.p
         variants={chiledVarient}
       >You ordered a {pizza.base} pizza with:</motion.p>
